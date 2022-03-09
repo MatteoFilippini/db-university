@@ -12,3 +12,9 @@ WHERE `cfu`>10;
 SELECT `name`,`surname`,YEAR(`date_of_birth`) as `anno`
 FROM `students`
 WHERE `anno`>1992;
+
+-- 4. Selezionare tutti i corsi del primo semestre del primo anno di un qualsiasi corso di laurea (286)
+SELECT *
+FROM `courses`
+WHERE `period` = 'I semestre'
+AND 'year'=1
