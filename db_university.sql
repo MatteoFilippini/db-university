@@ -7,3 +7,8 @@ WHERE `date_of_birth` LIKE '1990%'
 SELECT * 
 FROM `courses` 
 WHERE `cfu`>10;
+
+-- 3. Selezionare tutti gli studenti che hanno più di 30 anni
+SELECT `name`,`surname`,YEAR(`date_of_birth`) as `anno`
+FROM `students`
+WHERE `anno`>1992;
