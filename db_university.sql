@@ -41,6 +41,8 @@ WHERE `phone` IS NULL
 
 
 
+-- ___________GROUP______________
+
 -- 1. Contare quanti iscritti ci sono stati ogni anno
 SELECT COUNT(*) 
 FROM `students`
@@ -52,7 +54,7 @@ FROM `teachers`
 GROUP BY `office_address`
 
 -- 3. Calcolare la media dei voti di ogni appello d'esame
-SELECT `exam_id`,COUNT(*),ROUND(AVG(`vote`),2) as `media`
+SELECT `exam_id`,ROUND(AVG(`vote`),2) as `media`
 FROM `exam_student`
 GROUP BY `exam_id`
 
