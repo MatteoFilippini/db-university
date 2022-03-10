@@ -59,17 +59,27 @@ JOIN `departments` DD
 ON DD.`id` = D.`department_id`
 WHERE DD.`name`='Dipartimento di Matematica'
 
+-- 7. BONUS: Selezionare per ogni studente quanti tentativi d’esame ha sostenuto per superare ciascuno dei suoi esami
+SELECT E.`id` as `N esame`,E.`date`,COUNT(*) as `Tentativi`,S.`name`,S.`surname`,ES.`vote` 
+FROM `students` S 
+JOIN `exam_student` ES 
+ON S.`id` = ES.`student_id` 
+JOIN `exams` E 
+ON E.`id` = ES.`exam_id` 
+WHERE ES.`vote`<18 
+AND S.`id`=3 
+GROUP BY ES.`exam_id`
 
 
 
 
+SELECT COUNT(*)
+FROM `students` S
+JOIN `exam_student` ES
+ON S.`id` = ES.`student_id`
+
+WHERE ES.`vote`<18
+AND S.`id`=3
 
 
 
-
-
-
-
-
--- 7. BONUS: Selezionare per ogni studente quanti tentativi d’esame ha sostenuto per
--- superare ciascuno dei suoi esam
