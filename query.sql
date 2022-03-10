@@ -16,9 +16,9 @@ WHERE `departments`.`name`='Dipartimento di Neuroscienze'
 SELECT C.`name`
 FROM `courses` AS C
 JOIN `course_teacher` AS CT
-ON C.`id`=CT.`course_id`
+ON C.`id`= CT.`course_id`
 JOIN `teachers` AS T
-ON T.`id`=CT.`teacher_id`
+ON T.`id`= CT.`teacher_id`
 WHERE T.`name`='Fulvio'
 AND T.`surname`='Amato'
 
@@ -33,20 +33,31 @@ ON D.`id` = S.`degree_id`
 JOIN `departments` DD
 ON DD.`id` = D.`department_id`
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 -- 5. Selezionare tutti i corsi di laurea con i relativi corsi e insegnanti
+SELECT D.`name` as `corso`, C.`name`, T.`name`
+FROM `degrees` D
+
+JOIN `courses` as C
+ON D.`id` = C.`degree_id`
+
+JOIN `course_teacher` CT
+ON C.`id`= CT.`course_id`
+
+JOIN `teachers` T
+ON T.`id`= CT.`teacher_id`
+
+
+
+
+
+
+
+
+
+
+
+
+
 -- 6. Selezionare tutti i docenti che insegnano nel Dipartimento di Matematica (54)
 -- 7. BONUS: Selezionare per ogni studente quanti tentativi d’esame ha sostenuto per
 -- superare ciascuno dei suoi esam
